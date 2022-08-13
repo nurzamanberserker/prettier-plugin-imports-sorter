@@ -1,12 +1,12 @@
-import { addComments, removeComments } from '@babel/types';
 import { clone, isEqual } from 'lodash';
+import { addComments, removeComments } from '@babel/types';
 
-import { THIRD_PARTY_MODULES_SPECIAL_WORD, newLineNode } from '../constants';
 import { naturalSort } from '../natural-sort';
-import { GetSortedNodes, ImportGroups, ImportOrLine } from '../types';
-import { getImportNodesMatchedGroup } from './get-import-nodes-matched-group';
-import { getSortedImportSpecifiers } from './get-sorted-import-specifiers';
 import { getSortedNodesGroup } from './get-sorted-nodes-group';
+import { GetSortedNodes, ImportGroups, ImportOrLine } from '../types';
+import { getSortedImportSpecifiers } from './get-sorted-import-specifiers';
+import { THIRD_PARTY_MODULES_SPECIAL_WORD, newLineNode } from '../constants';
+import { getImportNodesMatchedGroup } from './get-import-nodes-matched-group';
 
 /**
  * This function returns all the nodes which are in the importOrder array.
@@ -121,6 +121,7 @@ export const getSortedNodes: GetSortedNodes = (nodes, options) => {
 
         if (totalNewLines > 0) {
             finalNodes.unshift(newLineNode);
+            finalNodes[0].leadingComments = [];
         }
 
         addComments(finalNodes[0], 'leading', firstNodesComments);

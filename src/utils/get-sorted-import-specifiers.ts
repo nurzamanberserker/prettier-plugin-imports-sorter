@@ -13,6 +13,10 @@ export const getSortedImportSpecifiers = (node: ImportDeclaration) => {
             return a.type === 'ImportDefaultSpecifier' ? -1 : 1;
         }
 
+        if(a.loc?.end.column && b.loc?.end.column) {
+            return naturalSort(a.loc.end.column, b.loc.end.column);
+        }
+
         return naturalSort(a.local.name, b.local.name);
     });
     return node;
