@@ -56,18 +56,31 @@ export const getSortedNodes: GetSortedNodes = (nodes, options) => {
 
         if (groupNodes.length === 0) continue;
 
-        const sortedInsideGroup = getSortedNodesGroup(groupNodes, {
+        const multiLineImports = groupNodes.filter(
+            (node) => node.loc?.start.line !== node.loc?.end.line,
+        );
+        const singleLineImports = groupNodes.filter(
+            (node) => node.loc?.start.line === node.loc?.end.line,
+        );
+
+        // Only sort single line imports
+        const sortedInsideGroup = getSortedNodesGroup(singleLineImports, {
             importOrderGroupNamespaceSpecifiers,
         });
 
+        const sortedInsideGroupWithMultiLineImports = [
+            ...sortedInsideGroup,
+            ...multiLineImports,
+        ];
+
         // Sort the import specifiers
         if (importOrderSortSpecifiers) {
-            sortedInsideGroup.forEach((node) =>
+            sortedInsideGroupWithMultiLineImports.forEach((node) =>
                 getSortedImportSpecifiers(node),
             );
         }
 
-        finalNodes.push(...sortedInsideGroup);
+        finalNodes.push(...sortedInsideGroupWithMultiLineImports);
 
         if (importOrderSeparation) {
             finalNodes.push(newLineNode);
@@ -99,6 +112,17 @@ export const getSortedNodes: GetSortedNodes = (nodes, options) => {
     });
 
     if (firstNodesComments) {
+        const firstNodesLastComment =
+            firstNodesComments[firstNodesComments.length - 1];
+        const totalNewLines =
+            (nodes[0]?.loc?.start.line || 0) -
+            firstNodesLastComment.loc.end.line -
+            1;
+
+        if (totalNewLines > 0) {
+            finalNodes.unshift(newLineNode);
+        }
+
         addComments(finalNodes[0], 'leading', firstNodesComments);
     }
 
