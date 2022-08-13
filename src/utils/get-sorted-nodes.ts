@@ -99,6 +99,17 @@ export const getSortedNodes: GetSortedNodes = (nodes, options) => {
     });
 
     if (firstNodesComments) {
+        const firstNodesLastComment =
+            firstNodesComments[firstNodesComments.length - 1];
+        const totalNewLines =
+            (nodes[0]?.loc?.start.line || 0) -
+            firstNodesLastComment.loc.end.line -
+            1;
+
+        if (totalNewLines > 0) {
+            finalNodes.unshift(newLineNode);
+        }
+
         addComments(finalNodes[0], 'leading', firstNodesComments);
     }
 
