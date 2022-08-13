@@ -7,28 +7,12 @@ A prettier plugin to sort import declarations by provided Regular Expression ord
 ### Input
 
 ```javascript
-import React, {
-    FC,
-    useEffect,
-    useRef,
-    ChangeEvent,
-    KeyboardEvent,
-} from 'react';
+import { initializeApp } from '@core/app';
 import { logger } from '@core/logger';
-import { reduce, debounce } from 'lodash';
-import { Message } from '../Message';
+import { createConnection } from '@server/database';
 import { createServer } from '@server/node';
 import { Alert } from '@ui/Alert';
-import { repeat, filter, add } from '../utils';
-import { initializeApp } from '@core/app';
 import { Popup } from '@ui/Popup';
-import { createConnection } from '@server/database';
-```
-
-
-### Output
-
-```javascript
 import { debounce, reduce } from 'lodash';
 import React, {
     ChangeEvent,
@@ -37,16 +21,27 @@ import React, {
     useEffect,
     useRef,
 } from 'react';
+import { Message } from '../Message';
+import { add, filter, repeat } from '../utils';
+```
 
-import { createConnection } from '@server/database';
-import { createServer } from '@server/node';
+### Output
 
+```javascript
 import { initializeApp } from '@core/app';
 import { logger } from '@core/logger';
-
+import { createConnection } from '@server/database';
+import { createServer } from '@server/node';
 import { Alert } from '@ui/Alert';
 import { Popup } from '@ui/Popup';
-
+import { debounce, reduce } from 'lodash';
+import React, {
+    ChangeEvent,
+    FC,
+    KeyboardEvent,
+    useEffect,
+    useRef,
+} from 'react';
 import { Message } from '../Message';
 import { add, filter, repeat } from '../utils';
 ```
@@ -56,13 +51,13 @@ import { add, filter, repeat } from '../utils';
 npm
 
 ```shell script
-npm install --save-dev @trivago/prettier-plugin-sort-imports
+npm install --save-dev @binayabaral/prettier-plugin-sort-imports
 ```
 
 or, using yarn
 
 ```shell script
-yarn add --dev @trivago/prettier-plugin-sort-imports
+yarn add --dev @binayabaral/prettier-plugin-sort-imports
 ```
 
 **Note: If you are migrating from v2.x.x to v3.x.x, [Please Read Migration Guidelines](./docs/MIGRATION.md)**
@@ -204,34 +199,17 @@ Having some trouble or an issue ? You can check [FAQ / Troubleshooting section](
 
 ### Compatibility
 
-| Framework              | Supported                | Note                                             |
-| ---------------------- | ------------------------ | ------------------------------------------------ |
-| JS with ES Modules     | ✅ Everything            | -                                                |
-| NodeJS with ES Modules | ✅ Everything            | -                                                |
-| React                  | ✅ Everything            | -                                                |
-| Angular                | ✅ Everything            | Supported through `importOrderParserPlugins` API |
-| Vue                    | ⚠️ Soon to be supported. | Any contribution is welcome.                     |
-| Svelte                 | ⚠️ Soon to be supported. | Any contribution is welcome.                     |
-
-### Used by
-
-Want to highlight your project or company ? Adding your project / company name will help plugin to gain attraction and contribution.
-Feel free to make a Pull Request to add your project / company name.
-
--   [trivago](https://company.trivago.com)
--   ADD YOUR PROJECT / COMPANY NAME
+| Framework              | Supported     | Note                                             |
+| ---------------------- | ------------- | ------------------------------------------------ |
+| JS with ES Modules     | ✅ Everything | -                                                |
+| NodeJS with ES Modules | ✅ Everything | -                                                |
+| React                  | ✅ Everything | -                                                |
+| Angular                | ✅ Everything | Supported through `importOrderParserPlugins` API |
 
 ### Contribution
 
 For more information regarding contribution, please check the [Contributing Guidelines](./CONTRIBUTING.md). If you are trying to
 debug some code in the plugin, check [Debugging Guidelines](./docs/DEBUG.md)
-
-### Maintainers
-
-| [Ayush Sharma](https://github.com/ayusharma)                             | [Behrang Yarahmadi](https://github.com/byara)                         |
-| ------------------------------------------------------------------------ | --------------------------------------------------------------------- |
-| ![ayusharma](https://avatars2.githubusercontent.com/u/6918450?s=120&v=4) | ![@byara](https://avatars2.githubusercontent.com/u/6979966?s=120&v=4) |
-| [@ayusharma\_](https://twitter.com/ayusharma_)                           | [@behrang_y](https://twitter.com/behrang_y)                           |
 
 ### Disclaimer
 
