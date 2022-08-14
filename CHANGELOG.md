@@ -2,6 +2,13 @@
 
 
 ---
+### v1.1.0 (Fork)
+#### New features
+- Added ability to sort imports by print width using flag `importOrderSortByPrintWidth`.
+
+#### Chores
+- Fixed issue of new line disappearing before first import statement.
+
 ### v3.3.0
 #### Chores
 - Update babel version [#134](https://github.com/trivago/prettier-plugin-sort-imports/pull/147) by [marvinroger](https://github.com/marvinroger)
