@@ -211,6 +211,7 @@ import { connect } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { FormattedMessage } from 'react-intl';
 import Modal from 'react-bootstrap/lib/Modal';
+```
 
 ### How does import sort work ?
 
