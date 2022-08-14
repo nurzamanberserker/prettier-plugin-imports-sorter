@@ -1,11 +1,14 @@
 import { Import, ImportDeclaration } from '@babel/types';
 
-import { naturalSort } from '../natural-sort';
 import { PrettierOptions } from '../types';
+import { naturalSort } from '../natural-sort';
 
 export const getSortedNodesGroup = (
     imports: ImportDeclaration[],
-    options: Pick<PrettierOptions, 'importOrderGroupNamespaceSpecifiers'>,
+    options: Pick<
+        PrettierOptions,
+        'importOrderGroupNamespaceSpecifiers' | 'importOrderSortByPrintWidth'
+    >,
 ) => {
     return imports.sort((a, b) => {
         if (options.importOrderGroupNamespaceSpecifiers) {
@@ -13,8 +16,12 @@ export const getSortedNodesGroup = (
             if (diff !== 0) return diff;
         }
 
-        // Make ladder import if column data is available
-        if (a.loc?.end.column && b.loc?.end.column) {
+        // Make ladder import if importOrderSortByPrintWidth is true and column data is available
+        if (
+            options.importOrderSortByPrintWidth &&
+            a.loc?.end.column &&
+            b.loc?.end.column
+        ) {
             return naturalSort(a.loc.end.column, b.loc.end.column);
         }
 

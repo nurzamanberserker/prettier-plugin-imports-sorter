@@ -21,6 +21,7 @@ export const getSortedNodes: GetSortedNodes = (nodes, options) => {
     const {
         importOrderSeparation,
         importOrderSortSpecifiers,
+        importOrderSortByPrintWidth,
         importOrderGroupNamespaceSpecifiers,
     } = options;
 
@@ -65,6 +66,7 @@ export const getSortedNodes: GetSortedNodes = (nodes, options) => {
 
         // Only sort single line imports
         const sortedInsideGroup = getSortedNodesGroup(singleLineImports, {
+            importOrderSortByPrintWidth,
             importOrderGroupNamespaceSpecifiers,
         });
 
@@ -76,7 +78,9 @@ export const getSortedNodes: GetSortedNodes = (nodes, options) => {
         // Sort the import specifiers
         if (importOrderSortSpecifiers) {
             sortedInsideGroupWithMultiLineImports.forEach((node) =>
-                getSortedImportSpecifiers(node),
+                getSortedImportSpecifiers(node, {
+                    importOrderSortByPrintWidth,
+                }),
             );
         }
 

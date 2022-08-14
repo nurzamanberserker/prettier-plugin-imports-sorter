@@ -1,11 +1,11 @@
-import { ParserOptions, parse as babelParser } from '@babel/parser';
 import traverse, { NodePath } from '@babel/traverse';
+import { ParserOptions, parse as babelParser } from '@babel/parser';
 import { ImportDeclaration, isTSModuleDeclaration } from '@babel/types';
 
 import { PrettierOptions } from './types';
+import { getSortedNodes } from './utils/get-sorted-nodes';
 import { getCodeFromAst } from './utils/get-code-from-ast';
 import { getExperimentalParserPlugins } from './utils/get-experimental-parser-plugins';
-import { getSortedNodes } from './utils/get-sorted-nodes';
 
 export function preprocessor(code: string, options: PrettierOptions) {
     const {
@@ -13,6 +13,7 @@ export function preprocessor(code: string, options: PrettierOptions) {
         importOrder,
         importOrderCaseInsensitive,
         importOrderSeparation,
+        importOrderSortByPrintWidth,
         importOrderGroupNamespaceSpecifiers,
         importOrderSortSpecifiers,
     } = options;
@@ -44,6 +45,7 @@ export function preprocessor(code: string, options: PrettierOptions) {
         importOrder,
         importOrderCaseInsensitive,
         importOrderSeparation,
+        importOrderSortByPrintWidth,
         importOrderGroupNamespaceSpecifiers,
         importOrderSortSpecifiers,
     });

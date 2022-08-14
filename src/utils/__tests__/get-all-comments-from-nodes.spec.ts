@@ -1,9 +1,9 @@
 import { ParserOptions } from '@babel/parser';
 import { CommentBlock, CommentLine, ImportDeclaration } from '@babel/types';
 
-import { getAllCommentsFromNodes } from '../get-all-comments-from-nodes';
 import { getImportNodes } from '../get-import-nodes';
 import { getSortedNodes } from '../get-sorted-nodes';
+import { getAllCommentsFromNodes } from '../get-all-comments-from-nodes';
 
 const getSortedImportNodes = (code: string, options?: ParserOptions) => {
     const importNodes: ImportDeclaration[] = getImportNodes(code, options);
@@ -12,6 +12,7 @@ const getSortedImportNodes = (code: string, options?: ParserOptions) => {
         importOrder: [],
         importOrderCaseInsensitive: false,
         importOrderSeparation: false,
+        importOrderSortByPrintWidth: false,
         importOrderGroupNamespaceSpecifiers: false,
         importOrderSortSpecifiers: false,
     });

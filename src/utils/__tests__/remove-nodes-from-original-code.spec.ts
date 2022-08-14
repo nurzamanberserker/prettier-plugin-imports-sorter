@@ -1,8 +1,8 @@
 import { format } from 'prettier';
 
-import { getAllCommentsFromNodes } from '../get-all-comments-from-nodes';
 import { getImportNodes } from '../get-import-nodes';
 import { getSortedNodes } from '../get-sorted-nodes';
+import { getAllCommentsFromNodes } from '../get-all-comments-from-nodes';
 import { removeNodesFromOriginalCode } from '../remove-nodes-from-original-code';
 
 const code = `// first comment
@@ -23,6 +23,7 @@ test('it should remove nodes from the original code', () => {
         importOrder: [],
         importOrderCaseInsensitive: false,
         importOrderSeparation: false,
+        importOrderSortByPrintWidth: false,
         importOrderGroupNamespaceSpecifiers: false,
         importOrderSortSpecifiers: false,
     });

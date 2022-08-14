@@ -1,5 +1,5 @@
-import { parsers as babelParsers } from 'prettier/parser-babel';
 import { parsers as flowParsers } from 'prettier/parser-flow';
+import { parsers as babelParsers } from 'prettier/parser-babel';
 import { parsers as typescriptParsers } from 'prettier/parser-typescript';
 
 import { preprocessor } from './preprocessor';
@@ -45,6 +45,12 @@ const options = {
         category: 'Global',
         default: false,
         description: 'Should specifiers be sorted?',
+    },
+    importOrderSortByPrintWidth: {
+        type: 'boolean',
+        category: 'Global',
+        default: false,
+        description: 'Should specifiers and imports be sorted by print width?',
     },
 };
 

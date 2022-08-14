@@ -66,7 +66,7 @@ yarn add --dev @binayabaral/prettier-plugin-sort-imports
 
 Add an order in prettier config file.
 
-```ecmascript 6
+```javascript
 module.exports = {
   "printWidth": 80,
   "tabWidth": 4,
@@ -75,7 +75,8 @@ module.exports = {
   "semi": true,
   "importOrder": ["^@core/(.*)$", "^@server/(.*)$", "^@ui/(.*)$", "^[./]"],
   "importOrderSeparation": true,
-  "importOrderSortSpecifiers": true
+  "importOrderSortSpecifiers": true,
+  "importOrderSortByPrintWidth": true,
 }
 ```
 
@@ -138,14 +139,14 @@ used to order imports within each match group.
 
 For example, when false (or not specified):
 
-```ecmascript 6
+```javascript
 import ExampleView from './ExampleView';
 import ExamplesList from './ExamplesList';
 ```
 
 compared with `"importOrderCaseInsensitive": true`:
 
-```ecmascript 6
+```javascript
 import ExamplesList from './ExamplesList';
 import ExampleView from './ExampleView';
 ```
@@ -182,6 +183,35 @@ with options as a JSON string of the plugin array:
 importOrderParserPlugins: []
 ```
 
+#### `importOrderSortByPrintWidth`
+
+**type**: `boolean`
+
+**default value**: `false`
+
+A boolean to enable sorting by print width instead of alphabetical sorting.
+
+For example, when false (or not specified):
+
+```javascript
+import * as React from 'react';
+import { connect } from 'react-redux';
+import { compose } from 'recompose';
+import { FormattedMessage } from 'react-intl';
+import { useForm } from 'react-hook-form';
+import Modal from 'react-bootstrap/lib/Modal';
+```
+
+compared with `"importOrderSortByPrintWidth": true`:
+
+```javascript
+import * as React from 'react';
+import { compose } from 'recompose';
+import { connect } from 'react-redux';
+import { useForm } from 'react-hook-form';
+import { FormattedMessage } from 'react-intl';
+import Modal from 'react-bootstrap/lib/Modal';
+
 ### How does import sort work ?
 
 The plugin extracts the imports which are defined in `importOrder`. These imports are considered as _local imports_.
@@ -214,3 +244,4 @@ debug some code in the plugin, check [Debugging Guidelines](./docs/DEBUG.md)
 ### Disclaimer
 
 This plugin modifies the AST which is against the rules of prettier.
+```

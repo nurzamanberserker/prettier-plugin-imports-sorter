@@ -2,8 +2,8 @@ import { ImportDeclaration } from '@babel/types';
 
 import { getImportNodes } from '../get-import-nodes';
 import { getSortedNodes } from '../get-sorted-nodes';
-import { getSortedNodesModulesNames } from '../get-sorted-nodes-modules-names';
 import { getSortedNodesNames } from '../get-sorted-nodes-names';
+import { getSortedNodesModulesNames } from '../get-sorted-nodes-modules-names';
 
 const code = `// first comment
 // second comment
@@ -26,6 +26,7 @@ test('it returns all sorted nodes', () => {
         importOrder: [],
         importOrderCaseInsensitive: false,
         importOrderSeparation: false,
+        importOrderSortByPrintWidth: false,
         importOrderGroupNamespaceSpecifiers: false,
         importOrderSortSpecifiers: false,
     }) as ImportDeclaration[];
@@ -70,6 +71,7 @@ test('it returns all sorted nodes case-insensitive', () => {
         importOrder: [],
         importOrderCaseInsensitive: true,
         importOrderSeparation: false,
+        importOrderSortByPrintWidth: false,
         importOrderGroupNamespaceSpecifiers: false,
         importOrderSortSpecifiers: false,
     }) as ImportDeclaration[];
@@ -114,6 +116,7 @@ test('it returns all sorted nodes with sort order', () => {
         importOrder: ['^a$', '^t$', '^k$', '^B'],
         importOrderCaseInsensitive: false,
         importOrderSeparation: false,
+        importOrderSortByPrintWidth: false,
         importOrderGroupNamespaceSpecifiers: false,
         importOrderSortSpecifiers: false,
     }) as ImportDeclaration[];
@@ -158,6 +161,7 @@ test('it returns all sorted nodes with sort order case-insensitive', () => {
         importOrder: ['^a$', '^t$', '^k$', '^B'],
         importOrderCaseInsensitive: true,
         importOrderSeparation: false,
+        importOrderSortByPrintWidth: false,
         importOrderGroupNamespaceSpecifiers: false,
         importOrderSortSpecifiers: false,
     }) as ImportDeclaration[];
@@ -201,6 +205,7 @@ test('it returns all sorted import nodes with sorted import specifiers', () => {
         importOrder: ['^a$', '^t$', '^k$', '^B'],
         importOrderCaseInsensitive: false,
         importOrderSeparation: false,
+        importOrderSortByPrintWidth: false,
         importOrderGroupNamespaceSpecifiers: false,
         importOrderSortSpecifiers: true,
     }) as ImportDeclaration[];
@@ -244,6 +249,7 @@ test('it returns all sorted import nodes with sorted import specifiers with case
         importOrder: ['^a$', '^t$', '^k$', '^B'],
         importOrderCaseInsensitive: true,
         importOrderSeparation: false,
+        importOrderSortByPrintWidth: false,
         importOrderGroupNamespaceSpecifiers: false,
         importOrderSortSpecifiers: true,
     }) as ImportDeclaration[];
@@ -287,6 +293,7 @@ test('it returns all sorted nodes with custom third party modules', () => {
         importOrder: ['^a$', '<THIRD_PARTY_MODULES>', '^t$', '^k$'],
         importOrderSeparation: false,
         importOrderCaseInsensitive: true,
+        importOrderSortByPrintWidth: false,
         importOrderGroupNamespaceSpecifiers: false,
         importOrderSortSpecifiers: false,
     }) as ImportDeclaration[];
@@ -311,6 +318,7 @@ test('it returns all sorted nodes with namespace specifiers at the top', () => {
         importOrder: [],
         importOrderCaseInsensitive: false,
         importOrderSeparation: false,
+        importOrderSortByPrintWidth: false,
         importOrderGroupNamespaceSpecifiers: true,
         importOrderSortSpecifiers: false,
     }) as ImportDeclaration[];

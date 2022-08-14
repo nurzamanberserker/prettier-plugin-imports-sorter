@@ -1,8 +1,8 @@
 import { format } from 'prettier';
 
-import { getCodeFromAst } from '../get-code-from-ast';
 import { getImportNodes } from '../get-import-nodes';
 import { getSortedNodes } from '../get-sorted-nodes';
+import { getCodeFromAst } from '../get-code-from-ast';
 
 test('it sorts imports correctly', () => {
     const code = `// first comment
@@ -19,6 +19,7 @@ import a from 'a';
         importOrder: [],
         importOrderCaseInsensitive: false,
         importOrderSeparation: false,
+        importOrderSortByPrintWidth: false,
         importOrderGroupNamespaceSpecifiers: false,
         importOrderSortSpecifiers: false,
     });

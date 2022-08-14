@@ -1,5 +1,5 @@
-import { ExpressionStatement, ImportDeclaration } from '@babel/types';
 import { RequiredOptions } from 'prettier';
+import { ExpressionStatement, ImportDeclaration } from '@babel/types';
 
 export interface PrettierOptions extends RequiredOptions {
     importOrder: string[];
@@ -7,6 +7,7 @@ export interface PrettierOptions extends RequiredOptions {
     // should be of type ParserPlugin from '@babel/parser' but prettier does not support nested arrays in options
     importOrderParserPlugins: string[];
     importOrderSeparation: boolean;
+    importOrderSortByPrintWidth: boolean;
     importOrderGroupNamespaceSpecifiers: boolean;
     importOrderSortSpecifiers: boolean;
 }
@@ -21,6 +22,7 @@ export type GetSortedNodes = (
         | 'importOrder'
         | 'importOrderCaseInsensitive'
         | 'importOrderSeparation'
+        | 'importOrderSortByPrintWidth'
         | 'importOrderGroupNamespaceSpecifiers'
         | 'importOrderSortSpecifiers'
     >,

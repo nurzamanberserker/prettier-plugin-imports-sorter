@@ -5,7 +5,9 @@ import { getSortedNodesModulesNames } from '../get-sorted-nodes-modules-names';
 test('should return correct sorted nodes', () => {
     const code = `import { filter, reduce, eventHandler } from '@server/z';`;
     const [importNode] = getImportNodes(code);
-    const sortedImportSpecifiers = getSortedImportSpecifiers(importNode);
+    const sortedImportSpecifiers = getSortedImportSpecifiers(importNode, {
+        importOrderSortByPrintWidth: false,
+    });
     const specifiersList = getSortedNodesModulesNames(
         sortedImportSpecifiers.specifiers,
     );
@@ -16,7 +18,9 @@ test('should return correct sorted nodes', () => {
 test('should return correct sorted nodes with default import', () => {
     const code = `import Component, { filter, reduce, eventHandler } from '@server/z';`;
     const [importNode] = getImportNodes(code);
-    const sortedImportSpecifiers = getSortedImportSpecifiers(importNode);
+    const sortedImportSpecifiers = getSortedImportSpecifiers(importNode, {
+        importOrderSortByPrintWidth: false,
+    });
     const specifiersList = getSortedNodesModulesNames(
         sortedImportSpecifiers.specifiers,
     );
