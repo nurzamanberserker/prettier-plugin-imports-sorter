@@ -1,6 +1,6 @@
 {
     "name": "@binayabaral/prettier-plugin-sort-imports",
-    "version": "1.1.2",
+    "version": "1.0.0",
     "description": "A prettier plugin to sort import declarations by provided Regular Expression order. A fork of @trivago/prettier-plugin-sort-imports",
     "main": "lib/src/index.js",
     "repository": {
@@ -29,6 +29,9 @@
         "name": "Binaya Baral",
         "email": "binaya.baral5@gmail.com",
         "url": "https://github.com/binayabaral"
+    },
+    "publishConfig": {
+        "registry":"https://npm.pkg.github.com"
     },
     "license": "Apache-2.0",
     "dependencies": {

@@ -2,7 +2,7 @@
 
 
 ---
-### v1.1.0 (Fork)
+### v1.0.0 (Fork)
 #### New features
 - Added ability to sort imports by print width using flag `importOrderSortByPrintWidth`.
 
