@@ -51,13 +51,13 @@ import { add, filter, repeat } from '../utils';
 npm
 
 ```shell script
-npm install --save-dev @binayabaral/prettier-plugin-sort-imports
+npm install --save-dev @binayabaral/prettier-plugin-imports-sorter
 ```
 
 or, using yarn
 
 ```shell script
-yarn add --dev @binayabaral/prettier-plugin-sort-imports
+yarn add --dev @binayabaral/prettier-plugin-imports-sorter
 ```
 
 **Note: If you are migrating from v2.x.x to v3.x.x, [Please Read Migration Guidelines](./docs/MIGRATION.md)**
