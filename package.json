@@ -1,56 +1,12 @@
 {
-    "name": "@binayabaral/prettier-plugin-imports-sorter",
-    "version": "1.0.1",
-    "description": "A prettier plugin to sort import declarations by provided Regular Expression order. A fork of @trivago/prettier-plugin-sort-imports",
-    "main": "lib/src/index.js",
-    "repository": {
-        "url": "https://github.com/binayabaral/prettier-plugin-sort-imports",
-        "type": "git"
-    },
-    "homepage": "https://github.com/binayabaral/prettier-plugin-sort-imports#readme",
-    "scripts": {
-        "prepare": "yarn run compile",
-        "compile": "tsc",
-        "preexample": "yarn run compile",
-        "example": "prettier --config ./examples/.prettierrc --plugin lib/src/index.js",
-        "test": "jest -i",
-        "type-check": "tsc --noEmit",
-        "prepublishOnly": "npm run compile"
-    },
-    "keywords": [
-        "prettier",
-        "plugin",
-        "sort",
-        "import",
-        "typescript",
-        "javascript"
-    ],
-    "author": {
-        "name": "Binaya Baral",
-        "email": "binaya.baral5@gmail.com",
-        "url": "https://github.com/binayabaral"
-    },
-    "license": "Apache-2.0",
-    "dependencies": {
-        "@babel/core": "7.17.8",
-        "@babel/generator": "7.17.7",
-        "@babel/parser": "7.17.8",
-        "@babel/traverse": "7.17.3",
-        "@babel/types": "7.17.0",
-        "javascript-natural-sort": "0.7.1",
-        "lodash": "4.17.21"
-    },
-    "devDependencies": {
-        "@types/chai": "4.2.15",
-        "@types/jest": "26.0.20",
-        "@types/node": "14.14.34",
-        "@types/lodash": "4.14.168",
-        "jest": "26.6.3",
-        "prettier": "2.3.1",
-        "ts-jest": "26.5.3",
-        "typescript": "4.2.3"
-    },
-    "peerDependencies": {
-        "prettier": "2.x"
-    }
+  "name": "prettier-plugin-imports-sorter",
+  "version": "1.0.0",
+  "description": "Prettier plugin to sort imports",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nurzamanberserker/prettier-plugin-imports-sorter.git"
+  },
+  "author": "nurzamanberserker",
+  "license": "MIT"
 }
